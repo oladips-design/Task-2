@@ -13,22 +13,26 @@ app
     let { operation_type, x, y } = req.body;
 
     let result;
-    if (operation_type === "-") {
-      result = x - y;
-    }
-    if (operation_type === "+") {
-      result = x + y;
-    }
-    if (operation_type === "*") {
-      result = x * y;
-    } else if (operation_type === "/") {
-      result = x / y;
+    switch (operation_type.value) {
+      case "subtraction":
+        result = x - y;
+        break;
+      case "addition":
+        result = x + y;
+        break;
+      case "multiplication":
+        result = x * y;
+        break;
+      default:
+        "This operation does not exist";
+        result = "unconclusive";
+        break;
     }
 
     let response = {
       slackUsername: "NoobDev",
-      operation_type: operation_type,
-      result: result,
+      operation_type: operation_type.value,
+      result,
     };
 
     res.send(response);
