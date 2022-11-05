@@ -10,15 +10,24 @@ app
     res.send("welcome!!! i do light arithmetics");
   })
   .post((req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     let { operation_type, x, y } = req.body;
 
+    x = parseInt(x);
+    y = parseInt(y);
+
     let result;
-    switch (operation_type.value) {
+    switch (operation_type) {
       case "subtraction":
         result = x - y;
         break;
       case "addition":
+        result = x + y;
+        break;
+      case "subtraction":
+        result = x - y;
+        break;
+      case "can you add":
         result = x + y;
         break;
       case "multiplication":
