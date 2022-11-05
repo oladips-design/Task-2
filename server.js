@@ -41,7 +41,7 @@ app
 
     let response = {
       slackUsername: "NoobDev",
-      operation_type: operation_type.value,
+      operation_type,
       result,
     };
 
