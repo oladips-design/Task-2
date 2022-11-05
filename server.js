@@ -10,6 +10,7 @@ app
     res.send("welcome!!! i do light arithmetics");
   })
   .post((req, res) => {
+    console.log(req.body);
     let { operation_type, x, y } = req.body;
 
     let result;
